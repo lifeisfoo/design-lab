@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>top-info-ease-in-expo</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    <style type="text/css">
+        #top-info {
+            height: 0px;
+            background-color: black;
+            color: white;
+            /* source http://matthewlein.com/ceaser/ */
+            -webkit-transition: all 350ms cubic-bezier(0.950, 0.050, 0.795, 0.035);
+               -moz-transition: all 350ms cubic-bezier(0.950, 0.050, 0.795, 0.035);
+                 -o-transition: all 350ms cubic-bezier(0.950, 0.050, 0.795, 0.035);
+                    transition: all 350ms cubic-bezier(0.950, 0.050, 0.795, 0.035); /* easeInExpo */
+
+            -webkit-transition-timing-function: cubic-bezier(0.950, 0.050, 0.795, 0.035);
+               -moz-transition-timing-function: cubic-bezier(0.950, 0.050, 0.795, 0.035);
+                 -o-transition-timing-function: cubic-bezier(0.950, 0.050, 0.795, 0.035);
+                    transition-timing-function: cubic-bezier(0.950, 0.050, 0.795, 0.035); /* easeInExpo */
+        }
+        #show-info {
+            float: right;
+        }
+        .top-info-content {
+            padding: 50px;
+        }
+        .force-show {
+            height: 200px !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="top-info">
+        <div class="top-info-content">
+            <h2>Contact info</h2>
+        </div>
+    </div>
+    <header>
+        <nav>
+            <h1>Title</h1>
+            <!-- real webpage fallback for non js bots -->
+            <a href="/contacts.html" id="show-info">
+                Toggle
+            </a>
+        </nav>
+    </header>
+    <script type="text/javascript">
+        (function (window, document) {
+            document.getElementById('show-info').addEventListener('click', function (e) {
+                e.preventDefault();
+                document.getElementById('top-info').classList.toggle('force-show');
+            });
+        })(this, this.document);
+    </script>
+</body>
+</html>
